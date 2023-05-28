@@ -3,3 +3,12 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  .card.card-compact.w-96.bg-base-100.shadow-xl
+    figure
+      img(src='/images/refrigerator.webp' alt='Refrigerator')
+    .card-body
+      h2.card-title Refrigerators!
+      p The thing you don't pay attention to that you can't live without
+      .card-actions.justify-start
+        button.btn.btn-primary Buy Now
