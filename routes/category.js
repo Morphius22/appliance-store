@@ -27,3 +27,5 @@ router.post("/:id/update", category_controller.category_update_post);
 
 //get request for a category
 router.get("/:id", category_controller.category_detail);
+
+module.exports = router;

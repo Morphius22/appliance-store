@@ -1,7 +1,28 @@
 doctype html
-html
+html(lang='en')
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href="/dist/output.css" rel="stylesheet")
   body
+    .navbar.bg-base-100
+      .flex-1
+        a.btn.btn-ghost.normal-case.text-xl daisyUI
+      .flex-none
+        ul.menu.menu-horizontal.px-1
+          li
+            a Item 1
+          li(tabindex='0')
+            a
+              | Parent
+              svg.fill-current(xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewbox='0 0 24 24')
+                path(d='M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z')
+            ul.p-2.bg-base-100
+              li
+                a Submenu 1
+              li
+                a Submenu 2
+          li
+            a Item 3
     block content

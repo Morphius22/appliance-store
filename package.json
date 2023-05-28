@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "daisyui": "^2.51.6",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -18,5 +19,8 @@
     "morgan": "~1.9.1",
     "nodemon": "^2.0.22",
     "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
   }
 }
