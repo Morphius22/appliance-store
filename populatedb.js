@@ -36,7 +36,7 @@ async function categoriesCreate(name, description) {
     description: description,
   };
 
-  const category = new Category({ categoryDetail });
+  const category = new Category(categoryDetail);
   await category.save();
   categories.push(category);
   console.log(`Added category: ${name}`);
@@ -64,59 +64,30 @@ async function createCategories() {
     categoriesCreate("Dishwashers", "Find all parts for Dishwashers"),
     categoriesCreate("Refrigerators", "Find all parts for Refrigerators"),
   ]);
+  console.log(categories);
 }
 
 async function createItems() {
   console.log("Adding Items");
   await Promise.all([
-    itemCreate(
-      "Compressor",
-      "compressor for a refrigerator",
-      300,
-      2,
-      categories[2]
-    ),
-    itemCreate(
-      "Door Handle",
-      "Replacement door handle for a refrigerator",
-      25,
-      12,
-      categories[2]
-    ),
+    itemCreate("Compressor", "compressor replacement", 300, 2, categories[2]),
+    itemCreate("Door Handle", "Replacement door handle", 25, 12, categories[2]),
     itemCreate(
       "Pilot Starter",
-      "Replacement pilot starter for an oven",
+      "Replacement pilot starter",
       10,
       50,
       categories[0]
     ),
-    itemCreate(
-      "Magic Item",
-      "The magic thing that makes ovens work",
-      875,
-      1,
-      categories[0]
-    ),
+    itemCreate("Magic Item", "The magic thing", 875, 1, categories[0]),
     itemCreate(
       "Front Panel",
-      "A replacement for the front of a dishwasher",
+      "A replacement for the front panel",
       100,
       2,
       categories[1]
     ),
-    itemCreate(
-      "Drain Line",
-      "A replacement drain line for a dishwasher",
-      30,
-      6,
-      categories[1]
-    ),
-    itemCreate(
-      "Pump",
-      "A replacement pump for a dishwasher",
-      325,
-      9,
-      categories[1]
-    ),
+    itemCreate("Drain Line", "A replacement drain line", 30, 6, categories[1]),
+    itemCreate("Pump", "A replacement pump", 325, 9, categories[1]),
   ]);
 }
