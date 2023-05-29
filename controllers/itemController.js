@@ -23,5 +23,3 @@ exports.item_update_post = asyncHandler(async (req, res, next) => {});
 
 //get request for a specific item
 exports.item_detail = asyncHandler(async (req, res, next) => {});
-
-module.exports = router;

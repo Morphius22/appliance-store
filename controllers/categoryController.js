@@ -37,5 +37,3 @@ exports.category_update_post = asyncHandler(async (req, res, next) => {});
 
 //get request for a specific category
 exports.category_detail = asyncHandler(async (req, res, next) => {});
-
-module.exports = router;

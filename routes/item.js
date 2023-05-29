@@ -23,3 +23,5 @@ router.post("/:id/update", item_controller.item_update_post);
 
 //get request for a item
 router.get("/:id", item_controller.item_detail);
+
+module.exports = router;
