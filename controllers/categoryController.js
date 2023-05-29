@@ -10,6 +10,8 @@ exports.index = asyncHandler(async (req, res, next) => {
     Item.find().sort({ name: 1 }).populate("category").exec(),
   ]);
 
+  console.log(allItems);
+
   res.render("index", {
     title: "Home Page",
     category_list: allCategories,
