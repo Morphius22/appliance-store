@@ -1,14 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  .flex
-    .card.card-compact.w-96.bg-base-100.shadow-xl
-      figure
-        img(src='/images/refrigerator.webp' alt='Refrigerator')
-      .card-body
-        h2.card-title Refrigerators!
-        p The thing you don't pay attention to that you can't live without
-        .card-actions.justify-start
-          button.btn.btn-primary Buy Now
+  .flex.flex-row.flex-wrap
+    each item in item_list
+      .card.card-compact.w-96.bg-base-100.shadow-xl.m-8
+        figure
+          img(src='/images/refrigerator.webp' alt='Refrigerator')
+        .card-body
+          h2.card-title #{item.name}
+          p.badge Category: #{item.category.description}
+          p #{item.description} 
+          .card-actions.justify-start
+            button.btn.btn-primary Buy Now
