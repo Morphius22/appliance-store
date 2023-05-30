@@ -8,8 +8,8 @@ block content
         figure
           img(src='/images/refrigerator.webp' alt='Refrigerator')
         .card-body
-          h2.card-title #{item.name}
           p.badge Category: #{item.category.name}
+          h2.card-title #{item.name}
           p #{item.description} 
           .card-actions.justify-start
-            button.btn.btn-primary #{item.price}
+            button.btn.btn-primary $#{item.price}
