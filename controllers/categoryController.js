@@ -3,21 +3,21 @@ const Category = require("../models/category");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
-//home page
-exports.index = asyncHandler(async (req, res, next) => {
-  const [allCategories, allItems] = await Promise.all([
-    Category.find().sort({ name: 1 }).exec(),
-    Item.find().sort({ name: 1 }).populate("category").exec(),
-  ]);
+// //home page
+// exports.index = asyncHandler(async (req, res, next) => {
+//   const [allCategories, allItems] = await Promise.all([
+//     Category.find().sort({ name: 1 }).exec(),
+//     Item.find().sort({ name: 1 }).populate("category").exec(),
+//   ]);
 
-  console.log(allItems);
+//   console.log(allItems);
 
-  res.render("index", {
-    title: "Home Page",
-    category_list: allCategories,
-    item_list: allItems,
-  });
-});
+//   res.render("index", {
+//     title: "Home Page",
+//     category_list: allCategories,
+//     item_list: allItems,
+//   });
+// });
 
 //get form for new category
 exports.category_create_get = asyncHandler(async (req, res, next) => {});

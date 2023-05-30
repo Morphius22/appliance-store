@@ -3,6 +3,9 @@ const router = express.Router();
 
 const item_controller = require("../controllers/itemController");
 
+//get category home page
+router.get("/", item_controller.index);
+
 //get request for creating a item
 router.get("/create", item_controller.item_create_get);
 

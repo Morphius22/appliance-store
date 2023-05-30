@@ -3,6 +3,22 @@ const Item = require("../models/item");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
+//home page
+exports.index = asyncHandler(async (req, res, next) => {
+  const [allCategories, allItems] = await Promise.all([
+    Category.find().sort({ name: 1 }).exec(),
+    Item.find().sort({ name: 1 }).populate("category").exec(),
+  ]);
+
+  console.log(allItems);
+
+  res.render("index", {
+    title: "Home Page",
+    category_list: allCategories,
+    item_list: allItems,
+  });
+});
+
 //get form for new item
 exports.item_create_get = asyncHandler(async (req, res, next) => {});
 
