@@ -25,7 +25,7 @@ exports.category_update_post = asyncHandler(async (req, res, next) => {});
 exports.category_detail = asyncHandler(async (req, res, next) => {
   const [category, itemsInCategory] = await Promise.all([
     Category.findById(req.params.id).exec(),
-    Item.find({ category: req.params.id }).exec(),
+    Item.find({ category: req.params.id }).populate("category").exec(),
   ]);
 
   console.log("this is the category" + category);

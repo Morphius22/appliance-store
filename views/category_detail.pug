@@ -10,7 +10,8 @@ block content
           img(src='/images/refrigerator.webp' alt='Refrigerator')
         .card-body
           h2.card-title #{item.name}
-          p.badge Category: #{item.category.name}
+          p.badge.badge-secondary Category: #{item.category.name} 
+          p.badge Number Available: #{item.stock}
           p #{item.description} 
           .card-actions.justify-start
-            button.btn.btn-primary Buy Now
+            button.btn.btn-primary $#{item.price}
