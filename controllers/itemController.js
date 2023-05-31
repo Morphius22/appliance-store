@@ -38,4 +38,19 @@ exports.item_update_get = asyncHandler(async (req, res, next) => {});
 exports.item_update_post = asyncHandler(async (req, res, next) => {});
 
 //get request for a specific item
-exports.item_detail = asyncHandler(async (req, res, next) => {});
+exports.item_detail = asyncHandler(async (req, res, next) => {
+  const item = await Item.findById(req.params.id).populate("category").exec();
+
+  console.log("this is the item", item);
+
+  if (item === null) {
+    const err = new Error("no item found");
+    err.status = 404;
+    return next(err);
+  }
+
+  res.render("item_detail", {
+    title: item.name,
+    item: item,
+  });
+});

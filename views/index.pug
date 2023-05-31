@@ -4,6 +4,7 @@ block content
   .flex.flex-row.flex-wrap
     each item in item_list
       console.log(item)
+      console.log(item.url)
       .card.card-compact.w-96.bg-base-100.shadow-xl.m-8
         figure
           img(src='/images/refrigerator.webp' alt='Refrigerator')
@@ -12,4 +13,5 @@ block content
           h2.card-title #{item.name}
           p #{item.description} 
           .card-actions.justify-start
-            button.btn.btn-primary $#{item.price}
+            a(href=item.url)
+              button.btn.btn-primary Learn More
