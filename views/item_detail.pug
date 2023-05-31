@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1.ml-6= title
+  .flex.flex-row.flex-wrap
+      .card.card-compact.w-96.bg-base-100.shadow-xl.m-8
+        figure
+          img(src='/images/refrigerator.webp' alt='Refrigerator')
+        .card-body
+          p.badge Category: #{item.category.name}
+          h2.card-title #{item.name} 
+          p #{item.description} 
+          p.badge Number Available: #{item.stock}
+          .card-actions.justify-start
+            button.btn.btn-primary Buy Now: $#{item.price}
