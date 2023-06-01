@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    .form-control.w-full.max-w-xs
+        label.label
+            span.label-text Category Name
+        input.input.input-bordered.w-full.max-w-xs(type='text' placeholder='Type here')
+        label.label
+            span.label-text Category Description
+        input.input.input-bordered.w-full.max-w-xs(type='text' placeholder='Type here')
+    button.btn.btn-primary(type='submit') Submit
+
+

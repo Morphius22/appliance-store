@@ -23,8 +23,9 @@ exports.category_update_post = asyncHandler(async (req, res, next) => {});
 
 //get request for a specific category
 exports.category_detail = asyncHandler(async (req, res, next) => {
-  const [category, itemsInCategory] = await Promise.all([
+  const [category, allCategories, itemsInCategory] = await Promise.all([
     Category.findById(req.params.id).exec(),
+    Category.find().sort({ name: 1 }).exec(),
     Item.find({ category: req.params.id }).populate("category").exec(),
   ]);
 
@@ -40,6 +41,7 @@ exports.category_detail = asyncHandler(async (req, res, next) => {
   res.render("category_detail", {
     title: category.name,
     category: category,
+    category_list: allCategories,
     itemsInCategory: itemsInCategory,
   });
 });
