@@ -2,9 +2,17 @@ const Item = require("../models/item");
 const Category = require("../models/category");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
+const category = require("../models/category");
 
 //get form for new category
-exports.category_create_get = asyncHandler(async (req, res, next) => {});
+exports.category_create_get = asyncHandler(async (req, res, next) => {
+  const allCategories = await Category.find().sort({ name: 1 }).exec();
+
+  res.render("create_category", {
+    title: "create category",
+    category_list: allCategories,
+  });
+});
 
 //post request to create a new category
 exports.category_create_post = asyncHandler(async (req, res, next) => {});
