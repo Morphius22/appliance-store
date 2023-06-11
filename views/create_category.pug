@@ -7,10 +7,15 @@ block content
     .form-control.w-full.max-w-xs
         label.label
             span.label-text Category Name
-        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
+        input#title.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="title")
         label.label
             span.label-text Category Description
-        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
+        input#description.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="description")
         button.btn.btn-primary(type='submit') Submit
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
 
 

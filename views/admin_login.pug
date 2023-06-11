@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1=title
+
+  form.flex.justify-center(method='POST' action='')
+    .form-control.w-full.max-w-xs
+        label.label
+            span.label-text Enter Password
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
+        button.btn.btn-primary(type='submit') Submit
