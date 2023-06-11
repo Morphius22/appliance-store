@@ -3,14 +3,14 @@ extends layout
 block content
   h1=title
 
-  form(method='POST' action='')
+  form.flex.justify-center(method='POST' action='')
     .form-control.w-full.max-w-xs
         label.label
             span.label-text Category Name
-        input.input.input-bordered.w-full.max-w-xs(type='text' placeholder='Type here')
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
         label.label
             span.label-text Category Description
-        input.input.input-bordered.w-full.max-w-xs(type='text' placeholder='Type here')
-    button.btn.btn-primary(type='submit') Submit
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
+        button.btn.btn-primary(type='submit') Submit
 
 

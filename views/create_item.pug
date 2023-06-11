@@ -3,23 +3,23 @@ extends layout
 block content
   h1=title
 
-  form(method='POST' action='')
+  form.flex.justify-center(method='POST' action='')
     .form-control.w-full.max-w-xs.flex.flex-column
         label.label
             span.label-text Item Name
-        input.input.input-bordered.w-full.max-w-xs(type='text' placeholder='Type here')
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
         label.label
             span.label-text Item Description
-        input.input.input-bordered.w-full.max-w-xs(type='text' placeholder='Type here')
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
         label.label
             span.label-text Price Per Unit
-        input.input.input-bordered.w-full.max-w-xs(type='text' placeholder='Type here')
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
         label.label
             span.label-text Number in Stock
-        input.input.input-bordered.w-full.max-w-xs(type='text' placeholder='Type here')
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
         label.label
         span.label-text What Category Is The Item In?
-        select.select.select-bordered
+        select.select.select-bordered.mb-5
             each category in category_list
                 option #{category.name}
-    button.btn.btn-primary(type='submit') Submit
+        button.btn.btn-primary(type='submit') Submit
