@@ -35,16 +35,22 @@ exports.category_create_post = [
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
     console.log("we hit the async function");
+    console.log(req.body.title);
+    console.log(req.body.description);
 
     const category = new Category({
-      title: req.body.title,
+      name: req.body.title,
       description: req.body.description,
     });
+
+    console.log(category);
 
     if (!errors.isEmpty()) {
       //there are errors - re-render form
       const allCategories = await Category.find().sort({ name: 1 }).exec();
-      console.log("we hite an error");
+
+      console.log("we hit an error");
+
       res.render("create_category", {
         title: "Error in Form",
         category_list: allCategories,
@@ -52,15 +58,10 @@ exports.category_create_post = [
       });
     } else {
       //no errors. save new category
-      const allCategories = await Category.find().sort({ name: 1 }).exec();
-      console.log(allCategories);
-
       await category.save();
       console.log("a new category should have been saved");
-      res.render("index", {
-        title: "New category created",
-        category_list: allCategories,
-      });
+
+      res.redirect("/");
     }
   }),
 ];

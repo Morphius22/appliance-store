@@ -7,19 +7,24 @@ block content
     .form-control.w-full.max-w-xs.flex.flex-column
         label.label
             span.label-text Item Name
-        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="name")
         label.label
             span.label-text Item Description
-        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="description")
         label.label
             span.label-text Price Per Unit
-        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="price")
         label.label
             span.label-text Number in Stock
-        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here')
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="stock")
         label.label
         span.label-text What Category Is The Item In?
         select.select.select-bordered.mb-5
             each category in category_list
-                option #{category.name}
+                option(name="category") #{category.name}
         button.btn.btn-primary(type='submit') Submit
+  
+  if errors
+    ul
+      for error in errors
+        li!= error.msg
