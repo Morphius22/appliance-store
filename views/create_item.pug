@@ -19,9 +19,9 @@ block content
         input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="stock")
         label.label
         span.label-text What Category Is The Item In?
-        select.select.select-bordered.mb-5
+        select.select.select-bordered.mb-5(name="category")
             each category in category_list
-                option(name="category") #{category.name}
+                option(value=category.name) #{category.name}
         button.btn.btn-primary(type='submit') Submit
   
   if errors

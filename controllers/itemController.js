@@ -11,6 +11,8 @@ exports.index = asyncHandler(async (req, res, next) => {
   ]);
 
   console.log(allItems);
+  console.log(allCategories);
+  console.log(allCategories[0].name);
 
   res.render("index", {
     title: "Home Page",
@@ -31,18 +33,6 @@ exports.item_create_get = asyncHandler(async (req, res, next) => {
 
 //post request to create a new item
 exports.item_create_post = [
-  // Convert the category to an array.
-  (req, res, next) => {
-    if (!(req.body.category instanceof Array)) {
-      if (typeof req.body.category === "undefined") {
-        req.body.category = [];
-      } else {
-        req.body.category = new Array(req.body.category);
-      }
-    }
-    console.log(req.body.category);
-    next();
-  },
   body("name", "name field must not be empty")
     .trim()
     .isLength({ min: 1 })
@@ -51,8 +41,14 @@ exports.item_create_post = [
     .trim()
     .isLength({ min: 1 })
     .escape(),
-  body("price", "price must not be empty").trim().isLength({ min: 1 }).escape(),
-  body("stock", "stock must not be empty").trim().isLength({ min: 1 }).escape(),
+  body("price", "price field must not be empty")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  body("stock", "stock field must not be empty")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
   body("category", "category must not be empty")
     .trim()
     .isLength({ min: 1 })
@@ -61,6 +57,8 @@ exports.item_create_post = [
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
     console.log("we hit the async function");
+
+    req.body.category = await Category.find().exec();
 
     const item = new Item({
       name: req.body.name,
