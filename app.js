@@ -9,7 +9,7 @@ const asyncHandler = require("express-async-handler");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-var categoryRouter = require("./routes/category"); //Import routes for "catalog" area of site
+var categoryRouter = require("./routes/category");
 var itemRouter = require("./routes/item");
 
 var app = express();

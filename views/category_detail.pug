@@ -14,4 +14,5 @@ block content
           p.badge Number Available: #{item.stock}
           p #{item.description} 
           .card-actions.justify-start
-            button.btn.btn-primary $#{item.price}
+            a(href=item.url)
+                button.btn.btn-primary $#{item.price}

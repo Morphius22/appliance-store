@@ -5,20 +5,23 @@ const { body, validationResult } = require("express-validator");
 
 //home page
 exports.index = asyncHandler(async (req, res, next) => {
-  const [allCategories, allItems] = await Promise.all([
-    Category.find().sort({ name: 1 }).exec(),
-    Item.find().sort({ name: 1 }).populate("category").exec(),
-  ]);
+  const allCategories = await Category.find().sort({ name: 1 }).exec();
+  const allItems = await Item.find()
+    .sort({ name: 1 })
+    .populate("category")
+    .exec();
 
   console.log(allItems);
   console.log(allCategories);
   console.log(allCategories[0].name);
 
-  res.render("index", {
-    title: "Home Page",
-    category_list: allCategories,
-    item_list: allItems,
-  });
+  if (allCategories !== undefined) {
+    res.render("index", {
+      title: "Home Page",
+      category_list: allCategories,
+      item_list: allItems,
+    });
+  }
 });
 
 //get form for new item
