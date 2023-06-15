@@ -25,7 +25,7 @@ html(lang='en')
                 li 
                   a Loading
               else 
-                each category in category_list === undefined ? category : []
+                each category in category_list
                   li
                     a(href=category.url) #{category.name}
     block content

@@ -2,16 +2,28 @@ extends layout
 
 block content
   .flex.flex-row.flex-wrap
-    each item in item_list
-      console.log(item)
-      console.log(item.url)
+    if item_list === undefined 
       .card.card-compact.w-96.bg-base-100.shadow-xl.m-8.z-0
         figure
           img(src='/images/refrigerator.webp' alt='Refrigerator')
         .card-body
-          p.badge Category: #{item.category.name}
-          h2.card-title #{item.name}
-          p #{item.description} 
+          h2.card-title Loading
+          p Loading
           .card-actions.justify-start
-            a(href=item.url)
-              button.btn.btn-primary Learn More
+            a
+              button.btn.btn-primary Loading
+
+    else 
+      each item in item_list
+        console.log(item)
+        console.log(item.url)
+        .card.card-compact.w-96.bg-base-100.shadow-xl.m-8.z-0
+          figure
+            img(src='/images/refrigerator.webp' alt='Refrigerator')
+          .card-body
+            p.badge Category: #{item.category.name}
+            h2.card-title #{item.name}
+            p #{item.description} 
+            .card-actions.justify-start
+              a(href=item.url)
+                button.btn.btn-primary Learn More
