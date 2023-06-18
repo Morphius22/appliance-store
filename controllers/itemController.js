@@ -61,14 +61,16 @@ exports.item_create_post = [
     const errors = validationResult(req);
     console.log("we hit the async function");
 
-    req.body.category = await Category.find().exec();
+    req.body.category = await Category.find({ name: req.body.category }).exec();
+
+    console.log(req.body.category);
 
     const item = new Item({
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
       stock: req.body.stock,
-      category: req.body.category,
+      category: req.body.category[0],
     });
 
     console.log(item);
