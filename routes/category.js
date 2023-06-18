@@ -14,7 +14,7 @@ router.get("/admin", category_controller.admin_get);
 router.post("/create", category_controller.category_create_post);
 
 //get request to delete a category
-router.get("/:id/delete", category_controller.category_delete_get);
+router.get("/delete", category_controller.category_delete_get);
 
 //post request to delete a category
 router.post("/:id/delete", category_controller.category_delete_post);

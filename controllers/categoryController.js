@@ -67,10 +67,29 @@ exports.category_create_post = [
 ];
 
 //get request to delete a new category
-exports.category_delete_get = asyncHandler(async (req, res, next) => {});
+exports.category_delete_get = asyncHandler(async (req, res, next) => {
+  const allCategories = await Category.find().sort({ name: 1 }).exec();
+
+  console.log(`${allCategories[0].url}/delete`);
+  console.log(allCategories[0].url);
+
+  res.render("delete_category", {
+    title: "Remove Category",
+    category_list: allCategories,
+  });
+});
 
 //post request to delete a new category
-exports.category_delete_post = asyncHandler(async (req, res, next) => {});
+exports.category_delete_post = asyncHandler(async (req, res, next) => {
+  const allCategories = await Category.find().sort({ name: 1 }).exec();
+  const allItems = await Item.find()
+    .sort({ name: 1 })
+    .populate("category")
+    .exec();
+
+  await Category.findByIdAndDelete(req.body.categoryid);
+  res.redirect("/");
+});
 
 //get request to update a category
 exports.category_update_get = asyncHandler(async (req, res, next) => {});
