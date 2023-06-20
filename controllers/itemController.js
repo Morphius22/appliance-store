@@ -1,4 +1,5 @@
 const Category = require("../models/category");
+const item = require("../models/item");
 const Item = require("../models/item");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
@@ -100,7 +101,11 @@ exports.item_create_post = [
 exports.item_delete_get = asyncHandler(async (req, res, next) => {});
 
 //post request to delete a new item
-exports.item_delete_post = asyncHandler(async (req, res, next) => {});
+exports.item_delete_post = asyncHandler(async (req, res, next) => {
+  await Item.findByIdAndDelete(req.body.itemid);
+
+  res.redirect("/");
+});
 
 //get request to update a item
 exports.item_update_get = asyncHandler(async (req, res, next) => {});

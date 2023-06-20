@@ -92,7 +92,16 @@ exports.category_delete_post = asyncHandler(async (req, res, next) => {
 });
 
 //get request to update a category
-exports.category_update_get = asyncHandler(async (req, res, next) => {});
+exports.category_update_get = asyncHandler(async (req, res, next) => {
+  const allCategories = Category.find().sort({ name: 1 }).exec();
+  const category = Category.findById(req.params.categoryid);
+
+  res.render("create_category", {
+    title: "Update Category",
+    category_list: allCategories,
+    category: category,
+  });
+});
 
 //post request to update a category
 exports.category_update_post = asyncHandler(async (req, res, next) => {});
