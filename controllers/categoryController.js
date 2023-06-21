@@ -93,8 +93,12 @@ exports.category_delete_post = asyncHandler(async (req, res, next) => {
 
 //get request to update a category
 exports.category_update_get = asyncHandler(async (req, res, next) => {
-  const allCategories = Category.find().sort({ name: 1 }).exec();
-  const category = Category.findById(req.params.categoryid);
+  const allCategories = await Category.find().sort({ name: 1 });
+  const category = await Category.findById(req.params.categoryid);
+
+  console.log(`this is all categories ${allCategories}`);
+  console.log(req.body.categoryid);
+  console.log(category);
 
   res.render("create_category", {
     title: "Update Category",
