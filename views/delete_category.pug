@@ -10,7 +10,6 @@ block content
                     div.flex.flex-row
                         form(method='POST' action=`${category.url}/delete`)
                             input#categoryid.input.input-bordered.w-full.max-w-xs(type='hidden',name='categoryid', required='true', value=category._id )
-                            button.btn.btn-primary(type='submit') Delete
-                        form(method='GET' action=`${category.url}/update`).mx-6
-                            input#categoryid.input.input-bordered.w-full.max-w-xs(type='hidden',name='categoryid', required='true', value=category._id )
-                            button.btn.btn-secondary(type='submit') Update
+                            button.btn.btn-primary(type='submit') Delete                       
+                        button.btn.btn-primary.mx-6(type='submit')
+                            a(href=`${category.url}/update`) Update

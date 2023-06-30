@@ -87,17 +87,17 @@ exports.category_delete_post = asyncHandler(async (req, res, next) => {
     .populate("category")
     .exec();
 
-  await Category.findByIdAndDelete(req.body.categoryid);
+  await Category.findByIdAndDelete(req.params.id);
   res.redirect("/");
 });
 
 //get request to update a category
 exports.category_update_get = asyncHandler(async (req, res, next) => {
   const allCategories = await Category.find().sort({ name: 1 });
-  const category = await Category.findById(req.params.categoryid);
+  const category = await Category.findById(req.params.id);
 
   console.log(`this is all categories ${allCategories}`);
-  console.log(req.body.categoryid);
+  console.log(req.params.id);
   console.log(category);
 
   res.render("create_category", {
