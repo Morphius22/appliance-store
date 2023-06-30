@@ -108,7 +108,22 @@ exports.category_update_get = asyncHandler(async (req, res, next) => {
 });
 
 //post request to update a category
-exports.category_update_post = asyncHandler(async (req, res, next) => {});
+exports.category_update_post = asyncHandler(async (req, res, next) => {
+  const updatedCategory = new Category({
+    name: req.body.name,
+    description: req.body.description,
+    _id: req.params.id,
+  });
+  console.log(updatedCategory);
+
+  const category = await Category.findByIdAndUpdate(
+    req.params.id,
+    updatedCategory
+  );
+  console.log(category);
+
+  res.redirect("/");
+});
 
 //get request for a specific category
 exports.category_detail = asyncHandler(async (req, res, next) => {
