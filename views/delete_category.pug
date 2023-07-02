@@ -3,7 +3,7 @@ extends layout
 block content 
     .flex.flex-row.flex-wrap
         each category in category_list
-            div.card.w-96.bg-base-200.shadow-xl.mx-6
+            div.card.w-96.bg-base-200.shadow-xl.mx-6.my-6
                 div.card-body
                     h2.card-title #{category.name}
                     p #{category.description}

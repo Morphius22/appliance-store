@@ -108,7 +108,18 @@ exports.item_delete_post = asyncHandler(async (req, res, next) => {
 });
 
 //get request to update a item
-exports.item_update_get = asyncHandler(async (req, res, next) => {});
+exports.item_update_get = asyncHandler(async (req, res, next) => {
+  const allCategories = await Category.find().sort({ name: 1 });
+  const item = await Item.findById(req.params.id);
+
+  console.log(item);
+
+  res.render("create_item", {
+    title: "Update Item",
+    category_list: allCategories,
+    item: item,
+  });
+});
 
 //post request to update a item
 exports.item_update_post = asyncHandler(async (req, res, next) => {});

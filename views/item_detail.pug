@@ -13,7 +13,7 @@ block content
           p.badge Number Available: #{item.stock}
           .card-actions.justify-start
             button.btn.btn-primary Buy Now: $#{item.price}
-          a(href="").text-slate-400 Update Item
+          a(href=`${item.url}/update`).text-slate-400 Update Item
           form(method='POST' action=`${item.url}/delete`)
             input#itemid.input.input-bordered.w-full.max-w-xs(type='hidden',name='itemid', required='true', value=item._id )
             button.btn.btn-warning.btn-xs(type='submit') Delete Item

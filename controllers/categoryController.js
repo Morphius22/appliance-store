@@ -109,8 +109,9 @@ exports.category_update_get = asyncHandler(async (req, res, next) => {
 
 //post request to update a category
 exports.category_update_post = asyncHandler(async (req, res, next) => {
+  console.log("it found the right route");
   const updatedCategory = new Category({
-    name: req.body.name,
+    name: req.body.title,
     description: req.body.description,
     _id: req.params.id,
   });

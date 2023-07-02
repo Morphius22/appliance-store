@@ -1867,6 +1867,11 @@ html {
   margin-right: 1.5rem;
 }
 
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .mb-5 {
   margin-bottom: 1.25rem;
 }
@@ -1953,11 +1958,6 @@ html {
 
 .normal-case {
   text-transform: none;
-}
-
-.text-red-400 {
-  --tw-text-opacity: 1;
-  color: rgb(248 113 113 / var(--tw-text-opacity));
 }
 
 .text-slate-400 {
