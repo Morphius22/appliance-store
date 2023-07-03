@@ -110,7 +110,7 @@ exports.item_delete_post = asyncHandler(async (req, res, next) => {
 //get request to update a item
 exports.item_update_get = asyncHandler(async (req, res, next) => {
   const allCategories = await Category.find().sort({ name: 1 });
-  const item = await Item.findById(req.params.id);
+  const item = await Item.findById(req.params.id).populate("category");
 
   console.log(item);
 
@@ -122,7 +122,19 @@ exports.item_update_get = asyncHandler(async (req, res, next) => {
 });
 
 //post request to update a item
-exports.item_update_post = asyncHandler(async (req, res, next) => {});
+exports.item_update_post = asyncHandler(async (req, res, next) => {
+  const updatedItem = new Item({
+    name: req.body.name,
+    description: req.body.description,
+    price: req.body.price,
+    stock: req.body.stock,
+    category: req.body.category,
+  });
+
+  const item = await Item.findByIdAndUpdate(req.params.id, updatedItem);
+
+  res.redirect("/");
+});
 
 //get request for a specific item
 exports.item_detail = asyncHandler(async (req, res, next) => {

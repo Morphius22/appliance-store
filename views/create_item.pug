@@ -7,16 +7,16 @@ block content
     .form-control.w-full.max-w-xs.flex.flex-column
         label.label
             span.label-text Item Name
-        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="name")
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="name" value=(undefined === item ? '' : item.name))
         label.label
             span.label-text Item Description
-        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="description")
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="description" value=(undefined === item ? '' : item.description))
         label.label
             span.label-text Price Per Unit
-        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="price")
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="price" value=(undefined === item ? '' : item.price))
         label.label
             span.label-text Number in Stock
-        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="stock")
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='text' placeholder='Type here' name="stock" value=(undefined === item ? '' : item.stock))
         label.label
         span.label-text What Category Is The Item In?
         select.select.select-bordered.mb-5(name="category")
