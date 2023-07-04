@@ -3,7 +3,7 @@ extends layout
 block content
   h1=title
 
-  form.flex.justify-center(method='POST' action='')
+  form.flex.justify-center(method='POST' action='' enctype="multipart/form-data")
     .form-control.w-full.max-w-xs.flex.flex-column
         label.label
             span.label-text Item Name

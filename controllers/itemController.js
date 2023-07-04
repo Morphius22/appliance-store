@@ -3,6 +3,8 @@ const item = require("../models/item");
 const Item = require("../models/item");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
 //home page
 exports.index = asyncHandler(async (req, res, next) => {
@@ -129,6 +131,7 @@ exports.item_update_post = asyncHandler(async (req, res, next) => {
     price: req.body.price,
     stock: req.body.stock,
     category: req.body.category,
+    _id: req.params.id,
   });
 
   const item = await Item.findByIdAndUpdate(req.params.id, updatedItem);
