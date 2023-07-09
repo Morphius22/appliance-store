@@ -22,6 +22,9 @@ block content
         select.select.select-bordered.mb-5(name="category")
             each category in category_list
                 option(value=category.name) #{category.name}
+        label.label
+            span.label-text Image of Item
+        input.input.input-bordered.w-full.max-w-xs.mb-5(type='file' name="image")
         button.btn.btn-primary(type='submit') Submit
   
   if errors
