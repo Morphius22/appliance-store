@@ -68,13 +68,15 @@ exports.item_create_post = [
 
     console.log(req.body.category);
 
+    console.log(req.file);
+
     const item = new Item({
       name: req.body.name,
       description: req.body.description,
       price: req.body.price,
       stock: req.body.stock,
       category: req.body.category[0],
-      image: req.file,
+      image: req.file.buffer,
     });
 
     console.log(item);
