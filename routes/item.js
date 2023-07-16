@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+const upload = multer({ dest: "public/images" });
 
 const item_controller = require("../controllers/itemController");
 
@@ -10,7 +12,11 @@ router.get("/", item_controller.index);
 router.get("/create", item_controller.item_create_get);
 
 //post request for creating a item
-router.post("/create", item_controller.item_create_post);
+router.post(
+  "/create",
+  upload.single("image"),
+  item_controller.item_create_post
+);
 
 //get request to delete a item
 router.get("/:id/delete", item_controller.item_delete_get);

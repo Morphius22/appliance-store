@@ -4,7 +4,7 @@ const Item = require("../models/item");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ dest: "public/images" });
 
 //home page
 exports.index = asyncHandler(async (req, res, next) => {
@@ -74,6 +74,7 @@ exports.item_create_post = [
       price: req.body.price,
       stock: req.body.stock,
       category: req.body.category[0],
+      image: req.file,
     });
 
     console.log(item);
