@@ -7,7 +7,7 @@ block content
         console.log(item.url)
         .card.card-compact.w-96.bg-base-100.shadow-xl.m-8.z-0
           figure
-            img(src='/images/refrigerator.webp' alt='Refrigerator')
+            img(src=(item.image === undefined ? '/images/refrigerator.webp' : "data:image/" + item.image.toString("base64")))
           .card-body
             //- p.badge | Category: #{item.category.name}
             h2.card-title #{item.name}
