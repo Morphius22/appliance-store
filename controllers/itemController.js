@@ -76,7 +76,7 @@ exports.item_create_post = [
       price: req.body.price,
       stock: req.body.stock,
       category: req.body.category[0],
-      image: req.file.buffer.toString("base64"),
+      image: req.file.buffer,
     });
 
     console.log(item);
