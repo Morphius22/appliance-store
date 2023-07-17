@@ -29,7 +29,11 @@ router.post("/:id/delete", item_controller.item_delete_post);
 router.get("/:id/update", item_controller.item_update_get);
 
 //post request to update a item
-router.post("/:id/update", item_controller.item_update_post);
+router.post(
+  "/:id/update",
+  upload.single("image"),
+  item_controller.item_update_post
+);
 
 //get request for a item
 router.get("/:id", item_controller.item_detail);

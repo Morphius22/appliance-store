@@ -134,6 +134,7 @@ exports.item_update_post = asyncHandler(async (req, res, next) => {
     price: req.body.price,
     stock: req.body.stock,
     category: req.body.category,
+    image: req.file.buffer,
     _id: req.params.id,
   });
 
